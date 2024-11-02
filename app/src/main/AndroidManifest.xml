@@ -11,12 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeApp"
+        android:name=".application.HomeApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".login.FirebaseAuthenticationLogin"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.HomeApp">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
