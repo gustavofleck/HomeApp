@@ -24,6 +24,23 @@ internal val annotationList = listOf(
     )
 )
 
+internal val orderedAnnotationList = listOf(
+    AnnotationItem(
+        id = "id2",
+        text = "Text2",
+        favorite = true,
+        created = "createdAt",
+        updated = "updatedAt"
+    ),
+    AnnotationItem(
+        id = "id1",
+        text = "Text1",
+        favorite = false,
+        created = "createdAt",
+        updated = "updatedAt"
+    )
+)
+
 internal val annotationListResponse = AnnotationResponseList(
     documents = listOf(
         AnnotationItemResponse(

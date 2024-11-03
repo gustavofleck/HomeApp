@@ -7,7 +7,7 @@ internal class ListAnnotationsUseCase(
     private val repository: AnnotationsRepository
 ) {
 
-    suspend fun invoke(): List<AnnotationItem> {
+    suspend operator fun invoke(): List<AnnotationItem> {
         val annotations = repository.annotations()
         val favoriteAnnotations = annotations.filter { it.favorite }
         val nonFavoriteAnnotations = annotations.filter { it.favorite.not() }
