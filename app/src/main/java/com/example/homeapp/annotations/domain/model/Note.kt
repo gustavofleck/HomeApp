@@ -1,6 +1,6 @@
 package com.example.homeapp.annotations.domain.model
 
-internal data class AnnotationItem(
+internal data class Note(
     val id: String,
     val text: String,
     val favorite: Boolean,

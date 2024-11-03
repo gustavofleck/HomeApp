@@ -1,15 +1,15 @@
 package com.example.homeapp.annotations.data.model
 
-import com.example.homeapp.annotations.domain.model.AnnotationItem
+import com.example.homeapp.annotations.domain.model.Note
 import com.example.homeapp.common.model.BooleanFieldResponse
 import com.example.homeapp.common.model.TextFieldResponse
 import com.google.gson.annotations.SerializedName
 
-internal data class AnnotationResponseList(
-    @SerializedName("documents") val documents: List<AnnotationItemResponse>? = null
+internal data class NoteResponseList(
+    @SerializedName("documents") val documents: List<NoteResponse>? = null
 )
 
-internal data class AnnotationItemResponse(
+internal data class NoteResponse(
     @SerializedName("name") val name: String? = null,
     @SerializedName("fields") val fields: AnnotationFieldsResponse? = null,
     @SerializedName("createTime") val createTime: String? = null,
@@ -21,7 +21,7 @@ internal data class AnnotationFieldsResponse(
     @SerializedName("favorite") val favorite: BooleanFieldResponse? = null
 )
 
-internal fun AnnotationItemResponse.toDomain() = AnnotationItem(
+internal fun NoteResponse.toDomain() = Note(
     id = name?.split("/")?.last().orEmpty(),
     text = fields?.text?.value.orEmpty(),
     favorite = fields?.favorite?.value ?: false,

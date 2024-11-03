@@ -1,21 +1,21 @@
 package com.example.homeapp.stubs
 
 import com.example.homeapp.annotations.data.model.AnnotationFieldsResponse
-import com.example.homeapp.annotations.data.model.AnnotationItemResponse
-import com.example.homeapp.annotations.data.model.AnnotationResponseList
-import com.example.homeapp.annotations.domain.model.AnnotationItem
+import com.example.homeapp.annotations.data.model.NoteResponse
+import com.example.homeapp.annotations.data.model.NoteResponseList
+import com.example.homeapp.annotations.domain.model.Note
 import com.example.homeapp.common.model.BooleanFieldResponse
 import com.example.homeapp.common.model.TextFieldResponse
 
-internal val annotationList = listOf(
-    AnnotationItem(
+internal val noteList = listOf(
+    Note(
         id = "id1",
         text = "Text1",
         favorite = false,
         created = "createdAt",
         updated = "updatedAt"
     ),
-    AnnotationItem(
+    Note(
         id = "id2",
         text = "Text2",
         favorite = true,
@@ -24,15 +24,15 @@ internal val annotationList = listOf(
     )
 )
 
-internal val orderedAnnotationList = listOf(
-    AnnotationItem(
+internal val orderedNoteList = listOf(
+    Note(
         id = "id2",
         text = "Text2",
         favorite = true,
         created = "createdAt",
         updated = "updatedAt"
     ),
-    AnnotationItem(
+    Note(
         id = "id1",
         text = "Text1",
         favorite = false,
@@ -41,9 +41,9 @@ internal val orderedAnnotationList = listOf(
     )
 )
 
-internal val annotationListResponse = AnnotationResponseList(
+internal val noteListResponse = NoteResponseList(
     documents = listOf(
-        AnnotationItemResponse(
+        NoteResponse(
             name = "test/url/id1",
             fields = AnnotationFieldsResponse(
                 text = TextFieldResponse("Text1"),
@@ -52,7 +52,7 @@ internal val annotationListResponse = AnnotationResponseList(
             createTime = "createdAt",
             updateTime = "updatedAt"
         ),
-        AnnotationItemResponse(
+        NoteResponse(
             name = "test/url/id2",
             fields = AnnotationFieldsResponse(
                 text = TextFieldResponse("Text2"),
@@ -64,6 +64,6 @@ internal val annotationListResponse = AnnotationResponseList(
     )
 )
 
-internal val nullAnnotationListResponse = AnnotationResponseList(
+internal val nullAnnotationListResponse = NoteResponseList(
     documents = null
 )
