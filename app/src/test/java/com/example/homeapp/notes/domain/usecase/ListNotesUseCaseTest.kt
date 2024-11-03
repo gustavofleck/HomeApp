@@ -1,6 +1,6 @@
-package com.example.homeapp.annotations.domain.usecase
+package com.example.homeapp.notes.domain.usecase
 
-import com.example.homeapp.annotations.domain.repository.NotesRepository
+import com.example.homeapp.notes.domain.repository.NotesRepository
 import com.example.homeapp.stubs.noteList
 import com.example.homeapp.stubs.orderedNoteList
 import io.mockk.coEvery

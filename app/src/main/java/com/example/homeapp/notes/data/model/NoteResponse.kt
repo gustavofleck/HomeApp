@@ -1,6 +1,6 @@
-package com.example.homeapp.annotations.data.model
+package com.example.homeapp.notes.data.model
 
-import com.example.homeapp.annotations.domain.model.Note
+import com.example.homeapp.notes.domain.model.Note
 import com.example.homeapp.common.model.BooleanFieldResponse
 import com.example.homeapp.common.model.TextFieldResponse
 import com.google.gson.annotations.SerializedName

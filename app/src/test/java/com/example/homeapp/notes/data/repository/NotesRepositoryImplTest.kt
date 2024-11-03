@@ -1,6 +1,6 @@
-package com.example.homeapp.annotations.data.repository
+package com.example.homeapp.notes.data.repository
 
-import com.example.homeapp.annotations.data.datasource.NotesDataSource
+import com.example.homeapp.notes.data.datasource.NotesDataSource
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

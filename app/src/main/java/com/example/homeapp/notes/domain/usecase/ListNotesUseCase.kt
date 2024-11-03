@@ -1,7 +1,7 @@
-package com.example.homeapp.annotations.domain.usecase
+package com.example.homeapp.notes.domain.usecase
 
-import com.example.homeapp.annotations.domain.model.Note
-import com.example.homeapp.annotations.domain.repository.NotesRepository
+import com.example.homeapp.notes.domain.model.Note
+import com.example.homeapp.notes.domain.repository.NotesRepository
 
 internal class ListNotesUseCase(
     private val repository: NotesRepository

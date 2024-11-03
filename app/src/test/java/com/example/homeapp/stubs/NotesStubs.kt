@@ -1,9 +1,9 @@
 package com.example.homeapp.stubs
 
-import com.example.homeapp.annotations.data.model.AnnotationFieldsResponse
-import com.example.homeapp.annotations.data.model.NoteResponse
-import com.example.homeapp.annotations.data.model.NoteResponseList
-import com.example.homeapp.annotations.domain.model.Note
+import com.example.homeapp.notes.data.model.AnnotationFieldsResponse
+import com.example.homeapp.notes.data.model.NoteResponse
+import com.example.homeapp.notes.data.model.NoteResponseList
+import com.example.homeapp.notes.domain.model.Note
 import com.example.homeapp.common.model.BooleanFieldResponse
 import com.example.homeapp.common.model.TextFieldResponse
 

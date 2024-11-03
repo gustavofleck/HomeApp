@@ -1,8 +1,8 @@
-package com.example.homeapp.annotations.data.datasource
+package com.example.homeapp.notes.data.datasource
 
-import com.example.homeapp.annotations.data.model.toDomain
-import com.example.homeapp.annotations.data.service.NotesApi
-import com.example.homeapp.annotations.domain.model.Note
+import com.example.homeapp.notes.data.model.toDomain
+import com.example.homeapp.notes.data.service.NotesApi
+import com.example.homeapp.notes.domain.model.Note
 
 internal class NotesDataSource(
     private val api: NotesApi

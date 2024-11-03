@@ -1,4 +1,4 @@
-package com.example.homeapp.annotations.domain.model
+package com.example.homeapp.notes.domain.model
 
 internal data class Note(
     val id: String,

@@ -1,6 +1,6 @@
-package com.example.homeapp.annotations.data.service
+package com.example.homeapp.notes.data.service
 
-import com.example.homeapp.annotations.data.model.NoteResponseList
+import com.example.homeapp.notes.data.model.NoteResponseList
 import retrofit2.http.GET
 
 internal interface NotesApi {

@@ -1,6 +1,6 @@
-package com.example.homeapp.annotations.data.datasource
+package com.example.homeapp.notes.data.datasource
 
-import com.example.homeapp.annotations.data.service.NotesApi
+import com.example.homeapp.notes.data.service.NotesApi
 import com.example.homeapp.stubs.noteList
 import com.example.homeapp.stubs.noteListResponse
 import com.example.homeapp.stubs.nullAnnotationListResponse
