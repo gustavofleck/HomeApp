@@ -26,7 +26,10 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
-class FirebaseAuthenticationLogin : AppCompatActivity() {
+private var email: String = ""
+private var password: String = ""
+
+internal class FirebaseAuthenticationLogin : AppCompatActivity() {
 
     private val auth: FirebaseAuth by lazy { Firebase.auth }
 
@@ -45,7 +48,7 @@ class FirebaseAuthenticationLogin : AppCompatActivity() {
     }
 
     private fun setupSignIn() {
-        auth.signInWithEmailAndPassword("gustavocfleck@gmail.com", "rytxMF7M_TLZ_XQuvyTw")
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     val user = auth.currentUser
@@ -65,8 +68,12 @@ fun Login(modifier: Modifier = Modifier, signIn: () -> Unit) {
         Row {
             Column(verticalArrangement = Arrangement.SpaceBetween) {
                 Image(painterResource(id = R.drawable.home_app_launcher_icon), contentDescription = null)
-                DSInputText(placeholder = "Email")
-                DSInputText(placeholder = "Password")
+                DSInputText(placeholder = "Email", onValueChange = {
+                    email = it
+                })
+                DSInputText(placeholder = "Password", onValueChange = {
+                    password = it
+                })
             }
         }
         DSPrimaryButton(text = "Sign in", signIn)
