@@ -28,10 +28,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "https://firestore.googleapis.com/v1/projects/securitycam-39ceb/databases/(default)/documents/")
+            buildConfigField("String", "BASE_URL", "\"https://firestore.googleapis.com/v1/projects/securitycam-39ceb/databases/(default)/documents/\"")
         }
         debug {
-            buildConfigField("String", "BASE_URL", "https://firestore.googleapis.com/v1/projects/securitycam-39ceb/databases/(default)/documents/")
+            buildConfigField("String", "BASE_URL", "\"https://firestore.googleapis.com/v1/projects/securitycam-39ceb/databases/(default)/documents/\"")
         }
     }
     compileOptions {
@@ -77,9 +77,11 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.gson)
     implementation(libs.okhttp3.logging.interceptor)
-    testImplementation(libs.junit)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.hamcrest)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

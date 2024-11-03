@@ -6,10 +6,10 @@ import com.example.homeapp.common.model.TextFieldResponse
 import com.google.gson.annotations.SerializedName
 
 internal data class AnnotationResponseList(
-    @SerializedName("documents") val documents: List<AnnotationResponse>? = null
+    @SerializedName("documents") val documents: List<AnnotationItemResponse>? = null
 )
 
-internal data class AnnotationResponse(
+internal data class AnnotationItemResponse(
     @SerializedName("name") val name: String? = null,
     @SerializedName("fields") val fields: AnnotationFieldsResponse? = null,
     @SerializedName("createTime") val createTime: String? = null,
@@ -21,7 +21,7 @@ internal data class AnnotationFieldsResponse(
     @SerializedName("favorite") val favorite: BooleanFieldResponse? = null
 )
 
-internal fun AnnotationResponse.toDomain() = AnnotationItem(
+internal fun AnnotationItemResponse.toDomain() = AnnotationItem(
     id = name?.split("/")?.last().orEmpty(),
     text = fields?.text?.value.orEmpty(),
     favorite = fields?.favorite?.value ?: false,
