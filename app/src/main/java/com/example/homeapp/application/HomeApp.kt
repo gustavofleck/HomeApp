@@ -1,6 +1,8 @@
 package com.example.homeapp.application
 
 import android.app.Application
+import com.example.homeapp.annotations.di.annotationModule
+import com.example.homeapp.login.di.loginModule
 import com.google.firebase.Firebase
 import com.google.firebase.initialize
 import org.koin.android.ext.koin.androidContext
@@ -15,7 +17,7 @@ class HomeApp : Application() {
         startKoin {
             androidLogger()
             androidContext(this@HomeApp)
-            modules()
+            modules(loginModule + annotationModule)
         }
     }
 
