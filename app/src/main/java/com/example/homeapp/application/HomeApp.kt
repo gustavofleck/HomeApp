@@ -1,7 +1,7 @@
 package com.example.homeapp.application
 
 import android.app.Application
-import com.example.homeapp.annotations.di.annotationModule
+import com.example.homeapp.notes.di.annotationModule
 import com.example.homeapp.login.di.loginModule
 import com.google.firebase.Firebase
 import com.google.firebase.initialize
