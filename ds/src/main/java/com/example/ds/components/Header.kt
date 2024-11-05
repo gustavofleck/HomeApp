@@ -18,24 +18,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun DSHeader(
+    modifier: Modifier = Modifier,
     title: String,
     subtitle: String? = null,
     navigationBack: (() -> Unit)? = null,
     navigationListener: () -> Unit
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .background(
                 MaterialTheme.colorScheme.primary,
                 RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp)
@@ -66,18 +62,14 @@ fun DSHeader(
                     Text(
                         text = title,
                         color = Color.White,
-                        fontFamily = FontFamily.Serif,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 24.sp
+                        style = MaterialTheme.typography.titleLarge
                     )
 
                     subtitle?.let {
                         Text(
                             text = it,
                             color = Color.White,
-                            fontFamily = FontFamily.Serif,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 16.sp
+                            style = MaterialTheme.typography.bodyLarge
                         )
                     }
                 }
@@ -98,5 +90,5 @@ fun DSHeader(
 @Preview(showBackground = true)
 @Composable
 fun DSHeaderPreview() {
-    DSHeader(title = "Title", subtitle = "Subtitle", {}) {}
+    DSHeader(title = "Title", subtitle = "Subtitle", navigationBack = {}) {}
 }
