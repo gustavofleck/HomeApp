@@ -6,6 +6,7 @@ import com.example.homeapp.notes.data.service.NotesApi
 import com.example.homeapp.notes.domain.repository.NotesRepository
 import com.example.homeapp.notes.domain.usecase.ListNotesUseCase
 import com.example.homeapp.network.FirestoreServiceProvider
+import com.example.homeapp.notes.domain.usecase.AddNoteUseCase
 import com.example.homeapp.notes.presentation.viewmodel.NotesViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -33,12 +34,18 @@ private val domainModule = module {
             repository = get()
         )
     }
+    factory {
+        AddNoteUseCase(
+            repository = get()
+        )
+    }
 }
 
 private val presentationModule = module {
     viewModel {
         NotesViewModel(
-            useCase = get()
+            listUseCase = get(),
+            addNoteUseCase = get()
         )
     }
 }
