@@ -2,6 +2,7 @@ package com.example.homeapp.notes.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.homeapp.notes.domain.model.Note
 import com.example.homeapp.notes.domain.usecase.AddNoteUseCase
 import com.example.homeapp.notes.domain.usecase.ListNotesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
@@ -24,21 +25,14 @@ internal class NotesViewModel(
         viewModelScope.launch(dispatcher) {
             _state.value = NotesViewState.Loading
             listUseCase()
-                .onFailure {
-                    withContext(Dispatchers.Main) {
-                        _state.value = NotesViewState.Error(it.message.orEmpty())
-                    }
-                    it.printStackTrace()
-                }.onSuccess { list ->
-                    val state = if (list.isEmpty()) {
-                        NotesViewState.Empty
-                    } else NotesViewState.Loaded(list)
-                    withContext(Dispatchers.Main) {
-                        _state.value = state
-                    }
-                }
+                .onFailure { handleStateSet(NotesViewState.Error(it.message.orEmpty())) }
+                .onSuccess { handleStateSet(setupLoadedState(it)) }
         }
     }
+
+    private fun setupLoadedState(notes: List<Note>) = if (notes.isEmpty()) {
+        NotesViewState.Empty
+    } else NotesViewState.Loaded(notes)
 
     fun onAddNoteClicked() {
         _state.value = NotesViewState.AddNote
@@ -47,15 +41,13 @@ internal class NotesViewModel(
     fun onAddNoteConfirm(text: String, favorite: Boolean) {
         viewModelScope.launch(dispatcher) {
             addNoteUseCase(text, favorite)
-                .onFailure {
-                    withContext(Dispatchers.Main) {
-                        _state.value = NotesViewState.Error(it.message.orEmpty())
-                    }
-                    it.printStackTrace()
-                }
-                .onSuccess {
-                    onRetrieveNotes()
-                }
+                .onFailure { handleStateSet(NotesViewState.Error(it.message.orEmpty())) }
+                .onSuccess { onRetrieveNotes() }
         }
     }
+
+    private suspend fun handleStateSet(state: NotesViewState) =
+        withContext(Dispatchers.Main) {
+            _state.value = state
+        }
 }
