@@ -68,14 +68,14 @@ fun DSPasswordInputText(
             text = it
             onValueChange(it)
         },
-        label = { Text(text = "Password")},
+        label = { Text(text = "Senha")},
         isError = isError,
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = if (isError) secondary else primary,
             unfocusedBorderColor = if (isError) tertiary else secondary,
             unfocusedPlaceholderColor = secondary
         ),
-        placeholder = { Text(text = "Password") },
+        placeholder = { Text(text = "Senha") },
         modifier = modifier,
         visualTransformation = PasswordVisualTransformation()
     )
