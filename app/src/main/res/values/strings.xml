@@ -13,4 +13,8 @@
     <string name="no_notes_icon_content_description">Sem anotações</string>
     <string name="add_notes_icon_content_description">Adicionar anotação</string>
 
+    <!-- Login -->
+    <string name="login_email_input_label">E-mail</string>
+    <string name="login_sign_in_button_label">Entrar</string>
+
 </resources>

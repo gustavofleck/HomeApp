@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.example.ds.components.DSHeader
 import com.example.ds.components.DSInputText
 import com.example.ds.components.DSPasswordInputText
@@ -29,7 +30,7 @@ import com.example.homeapp.login.presentation.viewmodel.LoginViewState
 @Composable
 internal fun LoginScreen(modifier: Modifier = Modifier, viewModel: LoginViewModel) {
     Column(modifier = modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceAround) {
-        DSHeader(title = "Home App") {}
+        DSHeader(title = stringResource(id = R.string.app_name)) {}
 
         val state by viewModel.state.collectAsState()
 
@@ -60,16 +61,16 @@ internal fun LoginLoadedState(viewModel: LoginViewModel) {
                 contentDescription = null
             )
             DSInputText(
-                placeholder = "Email",
+                placeholder = stringResource(id = R.string.login_email_input_label),
                 onValueChange = { email = it },
-                label = "Email"
+                label = stringResource(id = R.string.login_email_input_label)
             )
             DSPasswordInputText(
                 onValueChange = { password = it }
             )
         }
     }
-    DSPrimaryButton(text = "Sign in") {
+    DSPrimaryButton(text = stringResource(id = R.string.login_sign_in_button_label)) {
         viewModel.onSignInClicked(email, password)
     }
 }
