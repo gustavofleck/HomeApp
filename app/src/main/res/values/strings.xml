@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">HomeApp</string>
+
+    <!-- Notes -->
+    <string name="notes_screen_title">Anotações</string>
+    <string name="no_notes_screen_message">Parece que você ainda não tem anotações, clique no botão + para adicionar</string>
+    <string name="add_note_label">Anotação</string>
+    <string name="add_note_placeholder">Escreva aqui sua anotação</string>
+    <string name="add_note_favorite_checkbox_label">Adicionar</string>
+    <string name="add_note_confirm_button_label">Confirmar</string>
+    <string name="add_note_cancel_button_label">Cancelar</string>
+
+    <string name="no_notes_icon_content_description">Sem anotações</string>
+    <string name="add_notes_icon_content_description">Adicionar anotação</string>
+
 </resources>
