@@ -29,9 +29,12 @@ internal class NotesViewModel(
                         _state.value = NotesViewState.Error(it.message.orEmpty())
                     }
                     it.printStackTrace()
-                }.onSuccess {
+                }.onSuccess { list ->
+                    val state = if (list.isEmpty()) {
+                        NotesViewState.Empty
+                    } else NotesViewState.Loaded(list)
                     withContext(Dispatchers.Main) {
-                        _state.value = NotesViewState.Loaded(it)
+                        _state.value = state
                     }
                 }
         }
