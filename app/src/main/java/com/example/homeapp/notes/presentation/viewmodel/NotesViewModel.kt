@@ -5,6 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.homeapp.notes.domain.model.Note
 import com.example.homeapp.notes.domain.usecase.AddNoteUseCase
 import com.example.homeapp.notes.domain.usecase.ListNotesUseCase
+import com.example.homeapp.notes.presentation.viewmodel.NotesViewState.Empty
+import com.example.homeapp.notes.presentation.viewmodel.NotesViewState.Error
+import com.example.homeapp.notes.presentation.viewmodel.NotesViewState.Loaded
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,14 +28,13 @@ internal class NotesViewModel(
         viewModelScope.launch(dispatcher) {
             _state.value = NotesViewState.Loading
             listUseCase()
-                .onFailure { handleStateSet(NotesViewState.Error(it.message.orEmpty())) }
+                .onFailure { handleStateSet(Error(it.message.orEmpty())) }
                 .onSuccess { handleStateSet(setupLoadedState(it)) }
         }
     }
 
-    private fun setupLoadedState(notes: List<Note>) = if (notes.isEmpty()) {
-        NotesViewState.Empty
-    } else NotesViewState.Loaded(notes)
+    private fun setupLoadedState(notes: List<Note>) =
+        if (notes.isEmpty()) Empty else Loaded(notes)
 
     fun onAddNoteClicked() {
         _state.value = NotesViewState.AddNote
@@ -41,7 +43,7 @@ internal class NotesViewModel(
     fun onAddNoteConfirm(text: String, favorite: Boolean) {
         viewModelScope.launch(dispatcher) {
             addNoteUseCase(text, favorite)
-                .onFailure { handleStateSet(NotesViewState.Error(it.message.orEmpty())) }
+                .onFailure { handleStateSet(Error(it.message.orEmpty())) }
                 .onSuccess { onRetrieveNotes() }
         }
     }
