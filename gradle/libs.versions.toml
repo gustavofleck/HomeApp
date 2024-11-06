@@ -1,5 +1,6 @@
 [versions]
 agp = "8.4.0"
+androidxCoreTesting = "2.2.0"
 firebaseBom = "33.5.1"
 hamcrest = "2.2"
 koinAndroid = "4.0.0"
@@ -26,6 +27,7 @@ turbine = "0.12.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidxCoreTesting" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntimeCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
