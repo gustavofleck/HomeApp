@@ -132,7 +132,7 @@ internal fun NotesEmptyState(onAddNoteClicked: () -> Unit) {
 
 @Composable
 internal fun NotesLoadedState(notes: List<Note>, onAddNoteClicked: () -> Unit) {
-    Box {
+    Box(modifier = Modifier.fillMaxSize()) {
         Row {
             Column(
                 modifier = Modifier
