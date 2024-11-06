@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -17,13 +15,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.Note
-import androidx.compose.material.icons.filled.ReplayCircleFilled
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarOutline
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -43,6 +38,8 @@ import com.example.ds.components.DSHeader
 import com.example.ds.components.DSInputText
 import com.example.ds.components.DSPrimaryButton
 import com.example.ds.components.DSSecondaryButton
+import com.example.ds.states.ErrorState
+import com.example.ds.states.LoadingState
 import com.example.homeapp.notes.domain.model.Note
 import com.example.homeapp.notes.presentation.viewmodel.NotesViewModel
 import com.example.homeapp.notes.presentation.viewmodel.NotesViewState
@@ -60,7 +57,7 @@ internal fun NotesScreen(
         }
         Row {
             when (state) {
-                is NotesViewState.Loading -> NotesLoadingState()
+                is NotesViewState.Loading -> LoadingState()
 
                 is NotesViewState.Empty -> NotesEmptyState {
                     viewModel.onAddNoteClicked()
@@ -71,7 +68,7 @@ internal fun NotesScreen(
                         viewModel.onAddNoteClicked()
                     }
 
-                is NotesViewState.Error -> NotesErrorState {
+                is NotesViewState.Error -> ErrorState {
                     viewModel.onRetrieveNotes()
                 }
 
@@ -83,20 +80,6 @@ internal fun NotesScreen(
                 )
             }
         }
-    }
-}
-
-@Composable
-internal fun NotesLoadingState() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        CircularProgressIndicator(
-            modifier = Modifier.size(64.dp),
-            strokeWidth = 8.dp
-        )
     }
 }
 
@@ -201,40 +184,6 @@ internal fun AddNoteButton(modifier: Modifier, onClick: () -> Unit) {
 private fun setupFavoriteIcon(favorite: Boolean) = if (favorite) {
     Pair(Icons.Default.Star, "Favorito")
 } else Pair(Icons.Default.StarOutline, "Não favorito")
-
-@Composable
-internal fun NotesErrorState(onRetryClicked: () -> Unit) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Icon(
-            modifier = Modifier.size(64.dp),
-            imageVector = Icons.Default.Error,
-            tint = MaterialTheme.colorScheme.primary,
-            contentDescription = "Error"
-        )
-        Text(
-            text = "Ocorreu um erro inesperado, tente novamente",
-            style = MaterialTheme.typography.bodyLarge
-        )
-        Spacer(modifier = Modifier.height(48.dp))
-        IconButton(
-            onClick = onRetryClicked,
-            modifier = Modifier
-                .padding(horizontal = 16.dp)
-                .background(MaterialTheme.colorScheme.secondary, CircleShape)
-        ) {
-            Icon(
-                modifier = Modifier.size(120.dp),
-                imageVector = Icons.Default.ReplayCircleFilled,
-                tint = MaterialTheme.colorScheme.primary,
-                contentDescription = "Retry"
-            )
-        }
-    }
-}
 
 @Composable
 internal fun AddNoteState(
