@@ -8,7 +8,9 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.example.ds.R
 
 @Composable
 fun LoadingState() {
@@ -18,8 +20,8 @@ fun LoadingState() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CircularProgressIndicator(
-            modifier = Modifier.size(64.dp),
-            strokeWidth = 8.dp
+            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_small_size)),
+            strokeWidth = dimensionResource(id = R.dimen.border_small)
         )
     }
 }

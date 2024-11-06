@@ -19,7 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.example.ds.R
 
 @Composable
 fun ErrorState(onRetryClicked: () -> Unit) {
@@ -29,7 +31,7 @@ fun ErrorState(onRetryClicked: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
-            modifier = Modifier.size(64.dp),
+            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_small_size)),
             imageVector = Icons.Default.Error,
             tint = MaterialTheme.colorScheme.primary,
             contentDescription = "Error"
@@ -38,18 +40,18 @@ fun ErrorState(onRetryClicked: () -> Unit) {
             text = "Ocorreu um erro inesperado, tente novamente",
             style = MaterialTheme.typography.bodyLarge
         )
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_large)))
         IconButton(
             onClick = onRetryClicked,
             modifier = Modifier
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = dimensionResource(id = R.dimen.padding_large))
                 .background(MaterialTheme.colorScheme.secondary, CircleShape)
         ) {
             Icon(
-                modifier = Modifier.size(120.dp),
+                modifier = Modifier.size(dimensionResource(id = R.dimen.icon_large_size)),
                 imageVector = Icons.Default.ReplayCircleFilled,
                 tint = MaterialTheme.colorScheme.primary,
-                contentDescription = "Retry"
+                contentDescription = "Tentar novamente"
             )
         }
     }

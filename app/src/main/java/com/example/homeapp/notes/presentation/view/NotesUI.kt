@@ -31,9 +31,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.example.ds.R
 import com.example.ds.components.DSHeader
 import com.example.ds.components.DSInputText
 import com.example.ds.components.DSPrimaryButton
@@ -92,7 +94,7 @@ internal fun NotesEmptyState(onAddNoteClicked: () -> Unit) {
         Column {
             Icon(
                 modifier = Modifier
-                    .size(64.dp)
+                    .size(dimensionResource(id = R.dimen.icon_small_size))
                     .align(Alignment.CenterHorizontally),
                 imageVector = Icons.Default.Note,
                 contentDescription = "Sem anotações"
@@ -100,7 +102,7 @@ internal fun NotesEmptyState(onAddNoteClicked: () -> Unit) {
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(dimensionResource(id = R.dimen.padding_large))
                     .align(Alignment.CenterHorizontally),
                 style = MaterialTheme.typography.titleMedium,
                 textAlign = TextAlign.Center,
@@ -120,16 +122,19 @@ internal fun NotesLoadedState(notes: List<Note>, onAddNoteClicked: () -> Unit) {
             Column(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
-                    .padding(top = 16.dp),
+                    .padding(top = dimensionResource(id = R.dimen.padding_large)),
                 verticalArrangement = Arrangement.SpaceAround
             ) {
                 notes.forEach { note ->
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp)
+                            .padding(
+                                horizontal = dimensionResource(id = R.dimen.padding_large),
+                                vertical = dimensionResource(id = R.dimen.padding_medium)
+                            )
                             .border(
-                                width = 4.dp,
+                                width = dimensionResource(id = R.dimen.border_small),
                                 color = MaterialTheme.colorScheme.primary,
                                 shape = MaterialTheme.shapes.large
                             ),
@@ -138,7 +143,11 @@ internal fun NotesLoadedState(notes: List<Note>, onAddNoteClicked: () -> Unit) {
                         Box(modifier = Modifier.fillMaxWidth()) {
                             Text(
                                 modifier = Modifier
-                                    .padding(start = 16.dp, bottom = 16.dp, top = 16.dp)
+                                    .padding(
+                                        start = dimensionResource(id = R.dimen.padding_large),
+                                        bottom = dimensionResource(id = R.dimen.padding_large),
+                                        top = dimensionResource(id = R.dimen.padding_large)
+                                    )
                                     .align(Alignment.CenterStart),
                                 text = note.text,
                                 style = MaterialTheme.typography.bodyLarge,
@@ -148,7 +157,7 @@ internal fun NotesLoadedState(notes: List<Note>, onAddNoteClicked: () -> Unit) {
                             val iconData = setupFavoriteIcon(note.favorite)
                             Icon(
                                 modifier = Modifier
-                                    .padding(16.dp)
+                                    .padding(dimensionResource(id = R.dimen.padding_large))
                                     .align(Alignment.CenterEnd),
                                 imageVector = iconData.first,
                                 contentDescription = iconData.second
@@ -168,12 +177,12 @@ internal fun NotesLoadedState(notes: List<Note>, onAddNoteClicked: () -> Unit) {
 internal fun AddNoteButton(modifier: Modifier, onClick: () -> Unit) {
     IconButton(
         modifier = modifier
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = dimensionResource(id = R.dimen.padding_large))
             .background(MaterialTheme.colorScheme.secondary, CircleShape),
         onClick = onClick
     ) {
         Icon(
-            modifier = Modifier.size(88.dp),
+            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_medium_size)),
             imageVector = Icons.Default.Add,
             tint = MaterialTheme.colorScheme.primary,
             contentDescription = "Adicionar anotação"

@@ -19,8 +19,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ds.R
 
 @Composable
 fun DSHeader(
@@ -34,10 +36,16 @@ fun DSHeader(
         modifier = modifier
             .background(
                 MaterialTheme.colorScheme.primary,
-                RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp)
+                RoundedCornerShape(
+                    bottomStart = dimensionResource(id = R.dimen.border_large),
+                    bottomEnd = dimensionResource(id = R.dimen.border_large)
+                )
             )
             .fillMaxWidth()
-            .padding(vertical = 16.dp, horizontal = 8.dp),
+            .padding(
+                vertical = dimensionResource(id = R.dimen.padding_large),
+                horizontal = dimensionResource(id = R.dimen.border_medium)
+            ),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -51,13 +59,14 @@ fun DSHeader(
                             imageVector = Icons.Default.ArrowBack,
                             contentDescription = "Voltar",
                             tint = Color.White,
-                            modifier = Modifier.size(30.dp)
+                            modifier = Modifier
+                                .size(dimensionResource(id = R.dimen.icon_small_size))
                         )
                     }
                 }
                 Column(
                     modifier = Modifier
-                        .padding(8.dp)
+                        .padding(dimensionResource(id = R.dimen.padding_medium))
                 ) {
                     Text(
                         text = title,
@@ -81,7 +90,7 @@ fun DSHeader(
                 imageVector = Icons.Default.Help,
                 contentDescription = "Ajuda",
                 tint = Color.White,
-                modifier = Modifier.size(30.dp)
+                modifier = Modifier.size(dimensionResource(id = R.dimen.icon_small_size))
             )
         }
     }

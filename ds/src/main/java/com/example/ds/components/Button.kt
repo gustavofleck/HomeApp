@@ -12,18 +12,26 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ds.R
 
 @Composable
 fun DSPrimaryButton(text: String, onClick: () -> Unit) {
     Button(
         onClick = onClick,
-        shape = RoundedCornerShape(8.dp),
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp).size(52.dp),
+        shape = RoundedCornerShape(dimensionResource(id = R.dimen.border_medium)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                horizontal = dimensionResource(id = R.dimen.padding_large),
+                vertical = dimensionResource(id = R.dimen.padding_large)
+            )
+            .size(dimensionResource(id = R.dimen.button_medium_size)),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = Color.White
@@ -43,8 +51,14 @@ fun DSPrimaryButton(text: String, onClick: () -> Unit) {
 fun DSSecondaryButton(text: String, onClick: () -> Unit) {
     Button(
         onClick = onClick,
-        shape = RoundedCornerShape(8.dp),
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp).size(52.dp),
+        shape = RoundedCornerShape(dimensionResource(id = R.dimen.border_medium)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                horizontal = dimensionResource(id = R.dimen.padding_large),
+                vertical = dimensionResource(id = R.dimen.padding_large)
+            )
+            .size(dimensionResource(id = R.dimen.button_medium_size)),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.secondary,
             contentColor = Color.White
@@ -64,8 +78,14 @@ fun DSSecondaryButton(text: String, onClick: () -> Unit) {
 fun DSTertiaryButton(text: String, onClick: () -> Unit) {
     Button(
         onClick = onClick,
-        shape = RoundedCornerShape(8.dp),
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp).size(52.dp),
+        shape = RoundedCornerShape(dimensionResource(id = R.dimen.border_medium)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                horizontal = dimensionResource(id = R.dimen.padding_large),
+                vertical = dimensionResource(id = R.dimen.padding_large)
+            )
+            .size(dimensionResource(id = R.dimen.button_medium_size)),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.tertiary,
             contentColor = Color.White
