@@ -50,4 +50,4 @@ private val presentationModule = module {
     }
 }
 
-val annotationModule = listOf(dataModule, domainModule, presentationModule)
+val notesModule = listOf(dataModule, domainModule, presentationModule)
