@@ -12,7 +12,7 @@
     <dimen name="button_medium_size">52dp</dimen>
 
     <!-- Spacers -->
-    <dimen name="spacer_large">48</dimen>
+    <dimen name="spacer_large">48dp</dimen>
 
     <!-- Borders -->
     <dimen name="border_small">4dp</dimen>
