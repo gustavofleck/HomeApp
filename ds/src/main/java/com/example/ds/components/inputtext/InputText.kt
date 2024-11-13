@@ -1,7 +1,8 @@
-package com.example.ds.components
+package com.example.ds.components.inputtext
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -20,7 +21,7 @@ import com.example.ds.theme.tertiary
 
 @Composable
 fun DSInputText(
-    modifier: Modifier = Modifier.fillMaxWidth().padding(16.dp),
+    modifier: Modifier = Modifier.fillMaxWidth(),
     value: String = "",
     onValueChange: (String) -> Unit = {},
     label: String? = null,
@@ -41,12 +42,14 @@ fun DSInputText(
         label = { label?.let { Text(text = label)}},
         isError = isError,
         colors = OutlinedTextFieldDefaults.colors(
+            focusedTextColor = MaterialTheme.colorScheme.primary,
             focusedBorderColor = if (isError) secondary else primary,
             unfocusedBorderColor = if (isError) tertiary else secondary,
-            unfocusedPlaceholderColor = secondary
+            unfocusedPlaceholderColor = secondary,
+            focusedLabelColor = secondary
         ),
         placeholder = { placeholder?.let { Text(text = placeholder) } },
-        modifier = modifier,
+        modifier = modifier.padding(16.dp),
         maxLines = maxLines,
         minLines = minLines
     )
@@ -54,7 +57,7 @@ fun DSInputText(
 
 @Composable
 fun DSPasswordInputText(
-    modifier: Modifier = Modifier.fillMaxWidth().padding(16.dp),
+    modifier: Modifier = Modifier.fillMaxWidth(),
     value: String = "",
     onValueChange: (String) -> Unit = {},
     isError: Boolean = false
@@ -76,7 +79,7 @@ fun DSPasswordInputText(
             unfocusedPlaceholderColor = secondary
         ),
         placeholder = { Text(text = "Senha") },
-        modifier = modifier,
+        modifier = modifier.padding(16.dp),
         visualTransformation = PasswordVisualTransformation()
     )
 }
