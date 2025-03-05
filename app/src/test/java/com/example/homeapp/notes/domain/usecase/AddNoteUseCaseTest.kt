@@ -1,6 +1,7 @@
 package com.example.homeapp.notes.domain.usecase
 
-import com.example.homeapp.notes.domain.repository.NotesRepository
+import com.example.homeapp.features.notes.domain.repository.NotesRepository
+import com.example.homeapp.features.notes.domain.usecase.AddNoteUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking

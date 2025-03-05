@@ -1,7 +1,8 @@
 package com.example.homeapp.notes.domain.usecase
 
-import com.example.homeapp.notes.domain.model.Note
-import com.example.homeapp.notes.domain.repository.NotesRepository
+import com.example.homeapp.features.notes.domain.model.Note
+import com.example.homeapp.features.notes.domain.repository.NotesRepository
+import com.example.homeapp.features.notes.domain.usecase.ListNotesUseCase
 import com.example.homeapp.stubs.noteList
 import com.example.homeapp.stubs.orderedNoteList
 import io.mockk.coEvery

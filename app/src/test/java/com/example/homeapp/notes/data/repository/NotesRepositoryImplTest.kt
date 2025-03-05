@@ -1,10 +1,11 @@
 package com.example.homeapp.notes.data.repository
 
-import com.example.homeapp.notes.data.datasource.NotesDataSource
-import com.example.homeapp.notes.data.model.Favorite
-import com.example.homeapp.notes.data.model.NoteFields
-import com.example.homeapp.notes.data.model.NoteRequest
-import com.example.homeapp.notes.data.model.NoteText
+import com.example.homeapp.features.notes.data.datasource.NotesDataSource
+import com.example.homeapp.features.notes.data.model.Favorite
+import com.example.homeapp.features.notes.data.model.NoteFields
+import com.example.homeapp.features.notes.data.model.NoteRequest
+import com.example.homeapp.features.notes.data.model.NoteText
+import com.example.homeapp.features.notes.data.repository.NotesRepositoryImpl
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

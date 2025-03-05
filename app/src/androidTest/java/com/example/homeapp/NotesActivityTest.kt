@@ -3,10 +3,10 @@ package com.example.homeapp
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import com.example.homeapp.notes.domain.model.Note
-import com.example.homeapp.notes.presentation.view.NotesActivity
-import com.example.homeapp.notes.presentation.viewmodel.NotesViewModel
-import com.example.homeapp.notes.presentation.viewmodel.NotesViewState
+import com.example.homeapp.features.notes.domain.model.Note
+import com.example.homeapp.features.notes.presentation.view.NotesActivity
+import com.example.homeapp.features.notes.presentation.viewmodel.NotesViewModel
+import com.example.homeapp.features.notes.presentation.viewmodel.NotesViewState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.StateFlow

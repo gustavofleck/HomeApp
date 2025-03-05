@@ -5,11 +5,17 @@
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
 
-    <!-- Sizes -->
+    <!-- Icon sizes -->
     <dimen name="icon_small_size">64dp</dimen>
     <dimen name="icon_medium_size">88dp</dimen>
     <dimen name="icon_large_size">120dp</dimen>
-    <dimen name="button_medium_size">52dp</dimen>
+
+    <!-- Button Sizes -->
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_width_small">200dp</dimen>
+
+    <!-- Bars -->
+    <dimen name="bar_medium_height">40dp</dimen>
 
     <!-- Spacers -->
     <dimen name="spacer_large">48dp</dimen>

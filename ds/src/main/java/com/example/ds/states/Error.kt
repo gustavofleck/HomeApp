@@ -20,7 +20,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import com.example.ds.R
 
 @Composable
@@ -38,7 +37,7 @@ fun ErrorState(onRetryClicked: () -> Unit) {
         )
         Text(
             text = "Ocorreu um erro inesperado, tente novamente",
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyMedium
         )
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_large)))
         IconButton(

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HomeApp</string>
+    <string name="app_name">Home App</string>
 
     <!-- Notes -->
     <string name="notes_screen_title">Anotações</string>
@@ -16,5 +16,6 @@
     <!-- Login -->
     <string name="login_email_input_label">E-mail</string>
     <string name="login_sign_in_button_label">Entrar</string>
+    <string name="login_sign_up_button_label">Registrar</string>
 
 </resources>

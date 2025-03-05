@@ -2,8 +2,10 @@ package com.example.homeapp.notes.presentation.viewmodel
 
 import app.cash.turbine.test
 import com.example.homeapp.common.rules.MainDispatcherRule
-import com.example.homeapp.notes.domain.usecase.AddNoteUseCase
-import com.example.homeapp.notes.domain.usecase.ListNotesUseCase
+import com.example.homeapp.features.notes.domain.usecase.AddNoteUseCase
+import com.example.homeapp.features.notes.domain.usecase.ListNotesUseCase
+import com.example.homeapp.features.notes.presentation.viewmodel.NotesViewModel
+import com.example.homeapp.features.notes.presentation.viewmodel.NotesViewState
 import com.example.homeapp.stubs.orderedNoteList
 import io.mockk.coEvery
 import io.mockk.mockk

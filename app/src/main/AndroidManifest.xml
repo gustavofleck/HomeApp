@@ -14,7 +14,7 @@
         android:name=".application.HomeApp"
         tools:targetApi="31">
         <activity
-            android:name=".login.presentation.view.LoginActivity"
+            android:name=".features.login.presentation.view.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".notes.presentation.view.NotesActivity"
+            android:name=".features.notes.presentation.view.NotesActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
 

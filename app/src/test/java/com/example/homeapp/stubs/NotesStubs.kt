@@ -1,9 +1,9 @@
 package com.example.homeapp.stubs
 
-import com.example.homeapp.notes.data.model.AnnotationFieldsResponse
-import com.example.homeapp.notes.data.model.NoteResponse
-import com.example.homeapp.notes.data.model.NoteResponseList
-import com.example.homeapp.notes.domain.model.Note
+import com.example.homeapp.features.notes.data.model.NoteFieldsResponse
+import com.example.homeapp.features.notes.data.model.NoteResponse
+import com.example.homeapp.features.notes.data.model.NoteResponseList
+import com.example.homeapp.features.notes.domain.model.Note
 import com.example.homeapp.common.model.BooleanFieldResponse
 import com.example.homeapp.common.model.TextFieldResponse
 
@@ -45,7 +45,7 @@ internal val noteListResponse = NoteResponseList(
     documents = listOf(
         NoteResponse(
             name = "test/url/id1",
-            fields = AnnotationFieldsResponse(
+            fields = NoteFieldsResponse(
                 text = TextFieldResponse("Text1"),
                 favorite = BooleanFieldResponse(false)
             ),
@@ -54,7 +54,7 @@ internal val noteListResponse = NoteResponseList(
         ),
         NoteResponse(
             name = "test/url/id2",
-            fields = AnnotationFieldsResponse(
+            fields = NoteFieldsResponse(
                 text = TextFieldResponse("Text2"),
                 favorite = BooleanFieldResponse(true)
             ),
